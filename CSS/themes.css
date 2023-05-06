@@ -1,0 +1,140 @@
+/* ---Color design system-- */
+:root {
+
+    /* --Primary colors-- */
+    --clr-primary-white: hsl(0, 0%, 100%);
+    --clr-primary-100: hsl(220, 98%, 61%);
+    --clr-primary-black: hsl(0, 0 ,0 );
+
+    /* --linear gradient color combinations-- */
+    --clr-primary-200: hsl(192, 100%, 67%);
+    --clr-primary-300: hsl(280, 87%, 65%);
+
+
+    /* ----------------------------------------- */
+    /* -----------THEME-1-COLOR-SYSTEM----------*/
+    /* --------------------------------------- */
+
+    /* ---Secondary colors---- */
+    --theme-1-clr-secondary-100: hsl(234, 11%, 52%);
+    --theme-1-clr-secondary-200: hsl(237, 14%, 26%);
+
+
+    /* ---Neutral colors--- */
+    --theme-1-clr-neutral-100: hsl(234, 39%, 85%);
+    --theme-1-clr-neutral-200: hsl(236, 33%, 92%);
+    --theme-1-clr-neutral-300: hsl(233, 14%, 35%);
+    --theme-1-clr-neutral-400: hsl(235, 24%, 19%);
+    --theme-1-clr-neutral-500: hsl(235, 21%, 11%);
+
+
+    /* ------------------------------------------------- */
+    /*----------------- THEME-2-COLOR-SYSTEM---------- */
+    /* ------------------------------------------------- */
+
+    /* ---Secondary colors---- */
+    --theme-2-clr-secondary-100: hsl(233, 11%, 84%);
+
+
+    /* ---Neutral colors--- */
+    --theme-2-clr-neutral-100: hsl(236, 33%, 92%);
+    --theme-2-clr-neutral-200: hsl(0, 0%, 98%);
+    --theme-2-clr-neutral-300: hsl(236, 9%, 61%);
+    --theme-2-clr-neutral-400: hsl(235, 19%, 35%);
+
+
+    /* ------------------------------------ */
+    /* Color-Utility-Variables-THEME-1 */
+    /* ------------------------------------- */
+    --theme-1-bg-body: var(--theme-1-clr-neutral-500);
+    --theme-1-bg-todo: var(--theme-1-clr-neutral-400);
+    --theme-1-bg-todos-list: var(--theme-1-clr-secondary-200);
+    --theme-1-text-accent-100: var(--theme-1-clr-secondary-100);
+    --theme-1-text-accent-200: var(--theme-1-clr-neutral-100);
+    --theme-1-text-accent-200-hover: var(--theme-1-clr-neutral-200);
+    --theme-1-text-accent-300: var(--theme-1-clr-neutral-300);
+    --theme-1-text-accent-400: var(--theme-1-clr-primary-white);
+
+
+    /* --------------------------------------- */
+    /* Color-Utility-Variables----THEME-2 */
+    /* -------------------------------------- */
+    --theme-2-bg-body: var(--theme-2-clr-neutral-100);
+    --theme-2-bg-todo: var(--theme-2-clr-neutral-200);
+    --theme-2-bg-todo-list: ;
+    --theme-2-text-accent-100: var(--theme-2-clr-secondary-100) ;
+    --theme-2-text-accent-200: var(--theme-2-clr-neutral-200);
+    --theme-2-text-accent-300: var(--theme-2-clr-neutral-300);
+    --theme-2-text-accent-400: var(--theme-2-clr-neutral-400);
+
+}
+
+
+
+/* ----------------- */
+/* Utility classes */
+/* -------------- */
+
+
+
+
+/* ----------------------------------------- */
+/* COMPONENTS-STYLING */
+/* ------------------------------------------- */
+
+/*---- Theme-1 components styling------- */
+.theme-1 .bg {
+    background-color: var(--theme-1-bg-body);
+}
+
+.theme-1 .container__theme-btn {
+    background-image: url('/public/icon-sun.svg');
+}
+
+.theme-1 .bg__header {
+    background-image: url('/public/bg-desktop-dark.jpg');
+}
+
+.theme-1 .todo__item {
+    background-color: var(--theme-1-bg-todo);
+    color: var(--clr-primary-white);
+}
+
+.theme-1 .todo__footer  {
+    color: var(--theme-1-text-accent-200);
+    background-color: var(--theme-1-bg-todo);
+}
+
+
+/* ------Theme-2 components styling -----*/
+.theme-2 .bg {
+    background-color: var(--theme-2-bg-body);
+}
+
+.theme-2 .container__theme-btn {
+    background-image: url('/public/icon-moon.svg');
+}
+
+.theme-2 .bg__header {
+    background-image: url('/public/bg-desktop-light.jpg');
+}
+
+.theme-2 .todo__item {
+    background-color: var(--theme-2-bg-todo);
+    color: var(--clr-primary-black);
+}
+
+.theme-2  .todo__footer  {
+    color: var(--theme-2-text-accent-300);
+    background-color: var(--theme-2-bg-todo);
+}
+
+@media (max-width:500px) {
+    .theme-1 .bg__header {
+        background-image: url('/public/bg-mobile-dark.jpg');
+    }
+
+    .theme-2 .bg__header {
+        background-image: url('/public/bg-mobile-light.jpg');
+    }
+}
