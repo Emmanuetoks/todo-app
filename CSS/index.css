@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,400;0,700;1,400&display=swap');
+:root {
+    --ff-primary:  'Josefin Sans', sans-serif;
+    --clr-primary-100: hsl(220, 98%, 61%);
+}
+
 /* --CSS Resets ----*/
 *,
 *::before,
@@ -13,16 +19,31 @@ body,
 .bg {
     width: 100%;
     height: 100%;
+    font-family: var(--ff-primary);
+    font-weight: 400;
 }
 
 input {
     background-color: inherit;
+    font: inherit;
+    color: inherit;
 }
+
+input:focus {
+    outline: 0;
+}
+
 /* --------------------------------- */
 /* ----Utility Classes --- */
 /* ------------------------------- */
 .flex {
     display: flex;
+    gap: var(--gap);
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
     gap: var(--gap);
 }
 
@@ -36,14 +57,36 @@ input {
     width: 1px;
     height: 1px;
     overflow: hidden;
+    z-index: -999;
 }
 
 .uppercase {
     text-transform: uppercase;
 }
 
-.fs-200 {
-    font-size: 1.125rem;
+.fw-700 {
+    font-weight: 700;
+}
+
+.fw-400 {
+    font-weight: 00;
+}
+
+.checkbox--checked::before {
+    content: url('/icon-check.svg');
+    position: absolute;
+    height: fit-content;
+    right: 16%;
+    bottom: -4%;
+}
+
+
+.completed {
+    text-decoration: line-through;
+}
+
+.border-radius-5px {
+    border-radius: 5px;
 }
 
 /* ---------------------------- */
@@ -86,35 +129,84 @@ input {
     background-color: transparent;
 }
 
-.todo__item {
-    width: inherit;
-    padding-block: .6em;
-    padding-inline: 1.5em;
+.todo__checkbox {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid black;
+    cursor: pointer;
+    background-color: inherit;
 }
 
 
+
+.todo__item {
+    width: inherit;
+    padding-block: 1em;
+    padding-inline: 1.5em;
+    font-size: 1.125rem;
+    cursor: pointer;
+}
+
 .todo__footer {
-    /* padding: 1em; */
     padding-block: .6em;
     padding-inline: 1.5em;
     justify-content: space-between;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .todo__options {
     width: inherit;
     background-color: inherit;
     justify-content: center;
+    /* font-weight: 400; */
+    font-weight: 700;
+
 }
 
+.todo__list {
+    border-radius: 10px;
+}
+
+.todo__list .todo__item:first-child {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.todo__option {
+    cursor: pointer;
+}
+
+.todo__delete-button {
+    background-color: transparent;
+    margin-left: auto;
+    background-image: url('/icon-cross.svg');
+    background-repeat: no-repeat;
+    width: 18px;
+    cursor: pointer;
+    display: none;
+}
+
+.todo__item:hover .todo__delete-button {
+    display: block;
+}
 
 
 @media (max-width:600px) {
     .todo__options {
         position: absolute;
-        top: 110%;
+        top: 130%;
         left: 0;
         right: 0;
         padding: inherit;
+    }
 
+    .container__footer {
+        margin-block-start: 3rem;
+    }
+
+    .todo__delete-button {
+        display: inline-block;
     }
 }

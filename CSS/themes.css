@@ -3,7 +3,6 @@
 
     /* --Primary colors-- */
     --clr-primary-white: hsl(0, 0%, 100%);
-    --clr-primary-100: hsl(220, 98%, 61%);
     --clr-primary-black: hsl(0, 0 ,0 );
 
     /* --linear gradient color combinations-- */
@@ -16,11 +15,11 @@
     /* --------------------------------------- */
 
     /* ---Secondary colors---- */
-    --theme-1-clr-secondary-100: hsl(234, 11%, 52%);
-    --theme-1-clr-secondary-200: hsl(237, 14%, 26%);
+    --theme-1-clr-secondary-100: hsl(237, 14%, 26%);
 
 
     /* ---Neutral colors--- */
+    --theme-1-neutral-clr-600: hsl(234, 11%, 52%);
     --theme-1-clr-neutral-100: hsl(234, 39%, 85%);
     --theme-1-clr-neutral-200: hsl(236, 33%, 92%);
     --theme-1-clr-neutral-300: hsl(233, 14%, 35%);
@@ -48,12 +47,14 @@
     /* ------------------------------------- */
     --theme-1-bg-body: var(--theme-1-clr-neutral-500);
     --theme-1-bg-todo: var(--theme-1-clr-neutral-400);
-    --theme-1-bg-todos-list: var(--theme-1-clr-secondary-200);
+    --theme-1-bg-todos-list: var(--theme-1-neutral-clr-600);
     --theme-1-text-accent-100: var(--theme-1-clr-secondary-100);
     --theme-1-text-accent-200: var(--theme-1-clr-neutral-100);
     --theme-1-text-accent-200-hover: var(--theme-1-clr-neutral-200);
     --theme-1-text-accent-300: var(--theme-1-clr-neutral-300);
     --theme-1-text-accent-400: var(--theme-1-clr-primary-white);
+    --theme-1-text-accent-500: var(--theme-1-neutral-clr-600);
+    --theme-1-checkbox-bg: linear-gradient(to bottom right, var(--clr-primary-200), var(--clr-primary-300));
 
 
     /* --------------------------------------- */
@@ -61,26 +62,36 @@
     /* -------------------------------------- */
     --theme-2-bg-body: var(--theme-2-clr-neutral-100);
     --theme-2-bg-todo: var(--theme-2-clr-neutral-200);
-    --theme-2-bg-todo-list: ;
+    --theme-2-bg-todo-list: var(--theme-2-clr-neutral-100);
     --theme-2-text-accent-100: var(--theme-2-clr-secondary-100) ;
     --theme-2-text-accent-200: var(--theme-2-clr-neutral-200);
     --theme-2-text-accent-300: var(--theme-2-clr-neutral-300);
     --theme-2-text-accent-400: var(--theme-2-clr-neutral-400);
+    --theme-2-checkbox-bg: linear-gradient(to bottom right, var(--clr-primary-300), var(--clr-primary-200));
 
 }
-
-
-
-/* ----------------- */
-/* Utility classes */
-/* -------------- */
-
-
-
 
 /* ----------------------------------------- */
 /* COMPONENTS-STYLING */
 /* ------------------------------------------- */
+
+.todo__checkbox:hover::after {
+    content: '';
+    position: absolute;
+    inset: 0 0 0 0;
+    border-radius: inherit;
+    background-color: inherit; 
+    display: inline-block;
+    transform: scale(0.8);
+}
+
+.todo__checkbox:hover {
+    background-image: linear-gradient(to bottom right,  var(--clr-primary-300), var(--clr-primary-200));
+}
+
+.checkbox--checked:hover::after {
+    display: none;
+}
 
 /*---- Theme-1 components styling------- */
 .theme-1 .bg {
@@ -88,40 +99,69 @@
 }
 
 .theme-1 .container__theme-btn {
-    background-image: url('/public/icon-sun.svg');
+    background-image: url('/icon-sun.svg');
 }
 
 .theme-1 .bg__header {
-    background-image: url('/public/bg-desktop-dark.jpg');
+    background-image: url('/bg-desktop-dark.jpg');
 }
 
 .theme-1 .todo__item {
     background-color: var(--theme-1-bg-todo);
-    color: var(--clr-primary-white);
+    color: var(--theme-1-text-accent-200);
 }
 
 .theme-1 .todo__footer  {
-    color: var(--theme-1-text-accent-200);
+    color: var(--theme-1-text-accent-500);
     background-color: var(--theme-1-bg-todo);
 }
 
+.theme-1 .todo__option:hover {
+    color: var(--theme-1-text-accent-200-hover);
+}
+
+.theme-1 .todo__list {
+    background-color: var(--theme-1-bg-todos-list);
+}
+
+
+.theme-1 .completed {
+    color: var(--theme-1-text-accent-100);
+    text-decoration-color: var(--theme-1-text-accent-500);
+}
+
+.theme-1 .todo__checkbox {
+    border-color: var(--theme-1-clr-neutral-300);
+}
+
+.theme-1 .checkbox--checked {
+    background-image: var(--theme-1-checkbox-bg);
+}
+
+.theme-1 .checkbox--checked:hover {
+    background-image: var(--theme-2-checkbox-bg);
+}
+
+.theme-1 .container__footer {
+    color: var(--theme-1-text-accent-300);
+}
 
 /* ------Theme-2 components styling -----*/
 .theme-2 .bg {
     background-color: var(--theme-2-bg-body);
-}
+}   
 
 .theme-2 .container__theme-btn {
-    background-image: url('/public/icon-moon.svg');
+    background-image: url('/icon-moon.svg');
 }
 
 .theme-2 .bg__header {
-    background-image: url('/public/bg-desktop-light.jpg');
+    background-image: url('/bg-desktop-light.jpg');
 }
 
 .theme-2 .todo__item {
     background-color: var(--theme-2-bg-todo);
-    color: var(--clr-primary-black);
+    color: var(--theme-2-text-accent-400);
 }
 
 .theme-2  .todo__footer  {
@@ -129,12 +169,41 @@
     background-color: var(--theme-2-bg-todo);
 }
 
+.theme-2 .todo__option:hover {
+    color: var(--theme-2-text-accent-400);
+}
+
+.theme-2 .todo__list {
+    background-color: var(--theme-2-bg-todo-list);
+}
+
+.theme-2 .completed {
+    color: var(--theme-2-text-accent-100);
+    text-decoration-color: var(--theme-2-text-accent-300);
+}
+
+.theme-2 .todo__checkbox {
+    border-color: var(--theme-2-clr-neutral-300);
+}
+
+.theme-2 .checkbox--checked {
+    background-image: var(--theme-2-checkbox-bg);
+}
+
+.theme-2 .checkbox--checked:hover {
+    background-image: var(--theme-2-checkbox-bg);
+}
+
+.theme-2 .container__footer {
+    color: var(--theme-2-text-accent-300);
+}
+
 @media (max-width:500px) {
     .theme-1 .bg__header {
-        background-image: url('/public/bg-mobile-dark.jpg');
+        background-image: url('/bg-mobile-dark.jpg');
     }
 
     .theme-2 .bg__header {
-        background-image: url('/public/bg-mobile-light.jpg');
+        background-image: url('/bg-mobile-light.jpg');
     }
 }
