@@ -87,6 +87,18 @@ const TodoBox = () => {
   }, [])
 
 
+  useEffect(() => {
+    const todoListBox = document.getElementById('todoListBox');
+    const todoListBoxHeight = todoListBox.style.height;
+    console.log(todoListBoxHeight);
+    if (todoListBoxHeight == '15rem') {
+      // console.log('hello');
+    }
+  }, [itemCount])
+
+  // Automatically give user scroll when items are up to 10
+
+
   // Form Control Callbak Function
   const handleInputChange = (e) => {
     const inputCheckBox = e.target.previousSibling;
@@ -149,7 +161,7 @@ const TodoBox = () => {
       }
     })
     if (trackCount === 0) {
-      alert('No active tasks')
+      alert('No completed tasks')
       todoList.forEach((item) => {
         if (item.classList.contains('hide-todo-item')) {
           item.classList.remove('hide-todo-item')
@@ -215,7 +227,7 @@ const TodoBox = () => {
 
       <div className="todo__list flex-col border-radius-5px" style={{ '--gap': '1px' }}>
         {/* Loop Through userTodo List to display the users Todo Items */}
-        <div className="todo__list-box flex-col" style={{'gap':'1px', 'backgroundColor':'transparent'}}>
+        <div id="todoListBox" className="todo__list-box flex-col" style={{ 'gap': '1px', 'backgroundColor': 'transparent' }}>
           {userTodoList.map((todoItem) => {
             return <TodoItem setItemCont={setItemCont} setUserTodoList={setUserTodoList} userTodoList={userTodoList} key={todoItem.id} todoId={todoItem.id} todoName={todoItem.content} />
           })}
