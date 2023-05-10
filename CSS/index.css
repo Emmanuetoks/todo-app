@@ -180,7 +180,7 @@ input:focus {
 }
 
 .todo__list-box {
-    overflow-y: scroll;
+    overflow-y: auto;
     max-height: 15rem;
 }
 
