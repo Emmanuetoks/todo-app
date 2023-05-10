@@ -96,8 +96,7 @@ input:focus {
 /*  Components styling*/
 /* -------------------------- */
 #inputBox {
-    /* width: inherit; */
-    flex-grow: 2;
+    width: 50%;
 }
 
 
