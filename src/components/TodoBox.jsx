@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 const CheckBox = ({ userInput, setUserInput, setUserTodoList, userTodoList, setItemCont }) => {
+  let [todoIndex, setTodoIndex] = useState(0)
   // Handle Checkbox functionality depending on wehter its parent is the input section or a todoItem
   const makeCheckBackground = (e) => {
     e.target.classList.toggle('checkbox--checked');
@@ -16,14 +17,15 @@ const CheckBox = ({ userInput, setUserInput, setUserTodoList, userTodoList, setI
       }
     } else if (todoItem.id == 'inputBox') {
       if (userInput != '') {
-        let todoIndex = userTodoList.length + 1
-
         setUserTodoList((prevValue) => {
           // console.log('came here');
           return [...prevValue, { id: todoIndex, content: userInput }]
         })
 
         setUserInput('')
+        setTodoIndex((prevValue) => {
+          return prevValue + 1
+        })
         setItemCont(userTodoList.length + 1)
         console.log(userTodoList);
       }
@@ -80,7 +82,6 @@ const TodoBox = () => {
   let [userInput, setUserInput] = useState('');
   let [userTodoList, setUserTodoList] = useState([])
   let [itemCount, setItemCont] = useState(0)
-  console.log(userTodoList);
   // change item count to the number of todo items bt default
   useEffect(() => {
     setItemCont(userTodoList.length)
