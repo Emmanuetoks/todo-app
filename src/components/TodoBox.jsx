@@ -86,19 +86,6 @@ const TodoBox = () => {
     setItemCont(userTodoList.length)
   }, [])
 
-
-  useEffect(() => {
-    const todoListBox = document.getElementById('todoListBox');
-    const todoListBoxHeight = todoListBox.style.height;
-    console.log(todoListBoxHeight);
-    if (todoListBoxHeight == '15rem') {
-      // console.log('hello');
-    }
-  }, [itemCount])
-
-  // Automatically give user scroll when items are up to 10
-
-
   // Form Control Callbak Function
   const handleInputChange = (e) => {
     const inputCheckBox = e.target.previousSibling;
